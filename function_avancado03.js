@@ -50,3 +50,4 @@ let myTable = makeTable("u_sys_user"); // Atribuimos a essa variável myTable a 
 
 myTable();
 
+// Adicionado uma linha 
