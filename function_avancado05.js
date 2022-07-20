@@ -104,3 +104,52 @@ function contaNumero(num) {
 }
 
 contaNumero(5);
+//FUNÇÕES GERADORAS:
+/* Servem para entregar os valores internos da função por parte, não tudo de uma vez.
+São conhecidas como Lazy Evaluation (Avaliação preguiçosa). Dependendo do que formos fazer, isso pode ser bom para o código ganhar performance. 
+Exemplo:
+Na sintaxe, devemos sempre colocar depos da palavra function, o esterístico (*):
+*/
+function* funcaoGeradora(){
+  // Yield é similar a um return
+  yield 'valor1';
+  yield 'valor2';
+  yield 'valor3';
+
+}
+
+const g1 = funcaoGeradora();
+
+/* Invés de fazermos vários console.logs (abaixo), podemos fazer um for que irá iterar a função geradora:
+console.log(g1.next().value);
+console.log(g1.next().value); // (Enquanto houver valor dentro da função, o método next() segue mostrando os mesmos )
+console.log(g1.next().value);
+console.log(g1.next().value);*/
+
+for (let iterador of g1){
+  console.log(iterador);
+}
+
+// 2º Exemplo:
+//Delegando o conteúdo de uma função geradora para uma outra função geradora.
+
+function* geradora1() {
+  yield 'valor01';
+  yield 'valor02';
+  yield 'valor03';
+
+}
+
+function* geradora2() {
+  yield* geradora1(); // Nesse yeld, colocamos o * nele, pois estamos retornando no mesmo  primeira a função geradora .
+  // Agora. após o yeld que retorna a outra função, temos abaixo a continuidade dos valores dos yelds restantes. 
+  yield 'valor04';
+  yield 'valor05';
+  yield 'valor06';
+  yield 'valor07'; 
+}
+
+const g2 = geradora2();
+for (let passador of g2){
+  console.log(passador);
+}
