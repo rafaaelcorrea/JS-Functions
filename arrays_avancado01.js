@@ -22,7 +22,8 @@ console.log(nomes,neomesRemovidos);
 
 
 // USANDO O MÉTODO MAP - MAP():
-// Ele cria um novo array apartir de um já existente. Nesse novo array podemos selecionar o que desejamos levar para dentro do mesmo. 
+// Ele cria um novo array apartir de um já existente. 
+//Nesse novo array podemos selecionar o que desejamos levar para dentro do mesmo ou alterar valores do array original e coloca-los nesse novo array. 
 //Exemplo:
 
 // Um Array que contém um objeto como valor de cada índice. 
@@ -76,32 +77,48 @@ console.log(novoArray02);
 
 //==============================
 
-// 3.1) Concatenando propriedades id e nome com Map ( sem mesclagem de propriedades)  :
+//==================================
+
+// 3.1) Concatenando propriedades id e nome com Map (sem mesclagem de propriedades)  :
 const buscaDinamica03 = produtos.map( parametroObj03 => parametroObj03.id);
-const buscaDinamica04 = produtos.map(parametroObj04 => parametroObj04.nome );
+const buscaDinamica04 = produtos.map(parametroObj04 => parametroObj04.nome);
 
 console.log(buscaDinamica03.concat(buscaDinamica04));
 
-//3.2)
+//==================================
+
+// 4.1)  pegando somente os atributos ud e categoria  :
+
+const buscaNome = produtos.map( function (paramObj05 ) {
+
+   delete paramObj05.nome ;
+   return paramObj05; 
+});
+
+const buscaId = produtos.map( function (paramObj06 ) {
+
+    delete paramObj06.valor ;
+    return paramObj06; 
+ });
+
+console.log(buscaId);
+
+// 4.2 ) tentanto fazer a mesma coisa com o while:
 const novoArray03 = [];
-const novoArray04 = [];
-let iterador03 = 0;
+const Obj01 = [];
+i = 0;
 
-while ( iterador03 < produtos.length ){
+while ( i < produtos.length ) {
 
-    iterador03++;
+    i++;
+    
+    delete produtos[i].nome ;
+    delete produtos[i].id;
+   novoArray03.push(produtos[i]);
 
-    novoArray03.push([ produtos[iterador03].id, produtos[iterador03].nome ]);
 }
-
 console.log(novoArray03);
 
-
-/*for ( let iterador03 = 0 ;iterador03 < produtos.length ; iterador03++ ){
-
-
-}
-*/
 
 /* 3º Exemplo - Alterando os dados que coletamos do array de origem no novo array:
 const  numeros = [1,2,3,4,5];
