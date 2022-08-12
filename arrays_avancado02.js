@@ -92,3 +92,92 @@ const useReduce02 = carrinho.reduce((acumulador02 , objJ ) => {
 },0);
 
 console.log(useReduce02);
+
+// Pegue as quatro notas bimestrais do aluno, aramzene em um array de objetos. Após isso, utilize a função reduce() para calcular a média desse aluno 
+
+const notaAv1 =  12;
+const notaAv2 = 17 ;
+const notaAv3=  20;
+const notaAv4 = 55;
+
+const notasArray = [];
+const notasObj = {};
+
+notasObj.nota01 = notaAv1;
+notasObj.nota02 = notaAv2;
+notasObj.nota03 = notaAv3;
+notasObj.nota04 = notaAv4;
+
+notasArray.push(notasObj)
+
+const mediaNotas = notasArray.reduce( (acumulador , objNotas)  => {
+    
+    return  acumulador = (objNotas.nota01 +  objNotas.nota02 +  + objNotas.nota03 + objNotas.nota04) / 4;
+
+},0)
+
+console.log(mediaNotas);
+
+//=================================
+
+// Exercícios Usando o Map , Filter e Reduce
+// Filtre desse mesmo array somente as notas que valores pares:
+
+const notaAluno = [
+    { nt: 25  },
+    { nt: 35  },
+    { nt: 18  },
+    { nt: 86 },
+    { nt: 78  },
+    { nt: 95  },
+];
+
+const notasPares = notaAluno.filter(objNota => {
+    
+    if(objNota.nt % 2 === 0) {
+
+        return objNota.nt ;
+    }
+})
+
+console.log(notasPares);
+
+// Utilizando o array de objetos "nota aluno", Filtre as notas que tem resultado maior que 70;
+
+const range_resultado = notaAluno.filter(objNota => {
+    
+    if (objNota.nt > 70 ) {
+
+        return objNota.nt ;
+    }
+    
+});
+console.log(range_resultado);
+
+/*Utilizando o array de objetos "nota aluno",  usando o map , realize  o cáclculo de fatorial com cada nota ;
+
+const calc_fatorial = notaAluno.map(objNota => {
+
+        if (num === 0 || num === 1)
+          return 1;
+
+        for (var i = num - 1; i >= 1; i--) {
+          num *= i;
+        }
+        return num;
+      
+
+      factorialize(objNota.nt);
+});
+
+console.log(calc_fatorial);
+*/
+
+// Foreach
+// Ele itera o array como o For in , For of e For clássico .
+// Um exemplo de Foreach fazendo a mesma coisa que o reduce faz:
+
+let acumulador = 0;
+const somaValores =  carrinho.forEach( objArray  =>  { return acumulador += objArray.valor } );
+
+console.log(acumulador);
