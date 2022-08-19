@@ -143,4 +143,44 @@ console.log(objHtml)
 
 
 // Getters and Setters:
-//
+// Get  pega o valor do momento e mostra. O Set seta/atribui o valor ou alguma característica.
+// Protege os dados da propriedade , evitando que um tipo de dado inadequado seja colocado em tal propriedade.
+
+function Produto ( nome , marca , valor ) {
+    
+    this.nome =  nome,
+    this.marca = marca,
+
+    Object.defineProperty(this, 'valor' , {
+
+        enumerable : true,
+        configurable: true, 
+
+        get: () => { return valor; },
+        set: (valorInputado) => {
+
+           if (isNaN(valorInputado)){
+             console.log(`Por favor, digite um valor númerico.`);
+            }
+            
+            return console.log(valorInputado);
+
+        }
+})
+
+}
+
+// Alguns métodos de objetos:
+// Copiando um objeto e colocando os dados do mesmo emoutro objeto (Usando o spread operator):
+
+const listaNome = { nome: 'Carlos', nome02: 'Joana' };
+const listaConvidados = {...listaNome };
+
+console.log(listaNome);
+console.log(listaConvidados);
+
+//Vendo a descrição de uma propriedade:
+
+const frutas = {frt01: 'maça', frt02: 'laranja' }
+
+console.log(Object.getOwnPropertyDescriptor( frutas , 'frt01'));
