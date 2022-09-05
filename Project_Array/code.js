@@ -22,6 +22,8 @@ function funcMatriz(){
 
 }
 
+ function limpaInputs() { return deletaInputs.value = '';};
+    
  function addProd() {
     const prodDados = new ObjProd(nomeProd.value,marca.value,valor.value,fornecedor.value);
     arrProd.push(prodDados);
@@ -30,9 +32,7 @@ function funcMatriz(){
     
 }
 
-    function limpaInputs() { return deletaInputs.value = '';};
-
-
+ 
     /*
     document.addEventListener('click', evento => {
         const elementoHTML =  evento.target;
