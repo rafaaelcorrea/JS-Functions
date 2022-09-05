@@ -23,7 +23,7 @@ function funcMatriz(){
 }
 
  function limpaInputs() { 
-     console.log("chamou!")
+     console.log("chamou!");
      return deletaInputs.value = '';};
     
  function addProd() {
