@@ -26,6 +26,8 @@ function funcMatriz(){
     const prodDados = new ObjProd(nomeProd.value,marca.value,valor.value,fornecedor.value);
     arrProd.push(prodDados);
     limpaInputs();
+    console.log(`Tamanho do array:${arrProd.length}`);
+    
 }
 
     function limpaInputs() { return deletaInputs.value = '';};
@@ -42,9 +44,6 @@ function funcMatriz(){
 });
 */
 
-console.log(arrProd); 
-console.log(ObjProd);
-console.log(prodDados);
 console.log(`Tamanho do array:${arrProd.length}`);
 }
 
