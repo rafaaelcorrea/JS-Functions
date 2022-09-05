@@ -6,6 +6,7 @@ function funcMatriz(){
     let fornecedor = document.querySelector('.fornecedor');
     let deletaInputs = document.querySelectorAll('input');
     const btn = document.querySelector('.button');
+    btn.addEventListener('click', () => {  return addProd(); });
     const arrProd = [];
 
 
@@ -18,25 +19,16 @@ function funcMatriz(){
             this.fornecedor = fornecedor;
     }
 
-        pegarInputs(input) {
-            arrProd.push(input);
-        }
-
-        limpaDados(){
-            arrProd.length = 0;
-        }
 
 }
 
  function addProd() {
     const prodDados = new ObjProd(nomeProd.value,marca.value,valor.value,fornecedor.value);
-    prodDados.pegarInputs(prodDados);
+    arrProd.push(prodDados);
     limpaInputs();
 }
 
     function limpaInputs() { return deletaInputs.value = '';};
-
-    btn.addEventListener('click', () => {  return addProd(); });
 
 
     /*
