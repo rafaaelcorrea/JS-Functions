@@ -22,7 +22,9 @@ function funcMatriz(){
 
 }
 
- function limpaInputs() { return deletaInputs.value = '';};
+ function limpaInputs() { 
+     console.log("chamou!")
+     return deletaInputs.value = '';};
     
  function addProd() {
     const prodDados = new ObjProd(nomeProd.value,marca.value,valor.value,fornecedor.value);
