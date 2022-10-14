@@ -127,6 +127,7 @@ function relacaoGeral() {
         let heading_4 = document.createElement('th');
         heading_4.innerHTML = "Fornecedor";
         
+        
         row_1.appendChild(heading_1);
         row_1.appendChild(heading_2);
         row_1.appendChild(heading_3);
