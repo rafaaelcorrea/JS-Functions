@@ -144,3 +144,107 @@ freiar() {
 
 const moto1 = new Moto('Kawazaki');
 moto1.velocidade = 2000; // Não deixar alterar a variável velocidade original, e sim acaba criando uma outra propriedade. 
+//Herança com classe
+ //Usando o extends e o super();
+ 
+ class DispostivoEletronico {
+
+    constructor(nome) {
+        this.nome = nome;
+        this.ligado = false;
+    }
+
+    ligar(){
+         if( this.ligado ) {return `${this.nome} ligado!`};
+        this.ligado = true; 
+        };
+
+
+    desligar(){ 
+        if(!this.ligado) {return `${this.nome} desligado!`};
+        this.ligado = false;
+    };
+  
+
+}
+
+// Criamos uma subclasse (classe filha), que também herdará dados da classe pai (Dispositivo eletrônico):
+
+class Smartphone extends DispostivoEletronico { // Extends : herdando toda a classe dispositivoEletronico
+    constructor(nome, cor, modelo){
+        super(nome); //Super() - é um método que chama o construtor da classe pai (dispositivoEletrônico) e executa o mesmo.
+        //( como o construtor da classe pai só tinha um parâmetro chamadado "nome", então colocamos apenas o mesmo. )
+        
+        // Atributos/propriedades que criamos para essa subclasse (classe filha):
+        this.cor = cor;
+        this.modelo = modelo
+    }
+}
+
+const smart1 = new Smartphone('Samsumg','Branco','Galaxy A22');
+console.log(smart1);
+
+// Criamos mais uma subclasse( classe filha) , que também herdará dados da classe pai (Dispositivo eletrônico):
+
+class Tablelt extends DispostivoEletronico {
+    constructor(nome, wifi) {
+        super(nome);
+
+        //Atributos/propriedades que criamos para essa subclasse (classe filha):
+        this.wifi = wifi;
+    }
+    
+    
+    ligar(){
+        console.log('Tablet ligado.');
+    }
+
+    falaMensagem() {
+        console.log('Bem vindo ao dispositivo.')
+    }
+    
+}
+
+
+const tablet1 = new Tablelt('Ipad',' Wifi disponível');
+
+console.log(tablet1);
+tablet1.ligar();
+tablet1.ligar();
+tablet1.falaMensagem();
+
+// Métodos estáticos nas classes :
+// Para acessar esse tipo de método, não é preciso acessa-lo através de uma instância como é faito em um método comum, e sim
+// devemos acessa-lo diretamente pela a classe.
+// Geralmente, são usados como funções utilitárias, como funções para criar ou clonar objetos.
+//Exemplo:
+
+class ControleRemoto {
+    constructor(nomeDispositivo) {
+        this.nomeDispositivo = nomeDispositivo;
+        this.volume = 0;
+        }
+
+        aumentarVolume(){
+            this.volume += 1;
+        }
+
+        diminuirVolume(){
+            this.volume -=1 ;
+        }
+
+        //Método estático
+        static trocaPilha(){
+            return `Pilhas trocadas com sucesso.`;
+        }
+}
+
+const controle1 = new ControleRemoto('TV Samsumg');
+
+for (let i = 0 ; i = 3 ; i++){
+    controle1.aumentarVolume();
+}
+
+controle1.trocaPilha(); // << Forma INCORRETA de se chamar um método estático.
+console.log(ControleRemoto.trocaPilha()); // << Forma CORRETA  para se chamar um método estácico
+console.log(controle1);
